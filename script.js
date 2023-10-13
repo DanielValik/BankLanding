@@ -45,4 +45,35 @@ document
   .getElementById("ok_cookie")
   .addEventListener("click", () => cookieMessage.remove());
 
-console.log(Number.parseFloat(getComputedStyle(cookieMessage).height));
+// console.log(Number.parseFloat(getComputedStyle(cookieMessage).height));
+
+const btnScroll = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScroll.addEventListener("click", (e) => {
+  // const section1Coordinates = section1.getBoundingClientRect();
+  // console.log(section1Coordinates);
+  // window.scrollTo({
+  //   left: section1Coordinates.left + window.pageXOffset,
+  //   top: section1Coordinates.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
+// document.querySelectorAll(".nav__link").forEach((element) => {
+//   element.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let href = e.target.getAttribute("href");
+//     document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+//   });
+// });
+
+document.querySelector(".nav__links").addEventListener("click", (e) => {
+  if (e.target.classList.contains("nav__link")) {
+    e.preventDefault();
+    let href = e.target.getAttribute("href");
+    document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+  }
+});
