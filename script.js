@@ -35,6 +35,8 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+// Cookie message
+
 let header = document.querySelector("header");
 let cookieMessage = document.createElement("div");
 cookieMessage.innerHTML = `Czy zezwalasz dostep dla plikow cookie? <button id="ok_cookie">Ok</button>`;
@@ -77,3 +79,49 @@ document.querySelector(".nav__links").addEventListener("click", (e) => {
     document.querySelector(href).scrollIntoView({ behavior: "smooth" });
   }
 });
+
+//Tabs
+
+const tabContainer = document.querySelector(".operations__tab-container");
+const tabs = document.querySelectorAll(".operations__tab");
+const contents = document.querySelectorAll(".operations__content");
+
+tabContainer.addEventListener("click", function (e) {
+  let activeBtn = e.target.closest(".operations__tab");
+
+  if (!activeBtn) return;
+
+  tabs.forEach((tab) => tab.classList.remove("operations__tab--active"));
+  activeBtn.classList.add("operations__tab--active");
+
+  contents.forEach((content) =>
+    content.classList.remove("operations__content--active")
+  );
+  document
+    .querySelector(`.operations__content--${activeBtn.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+
+// Navigation
+
+const nav = document.querySelector(".nav");
+
+function navigationHoverOpacity(e, opacity) {
+  if (e.target.classList.contains("nav__link")) {
+    let linkOver = e.target;
+    let links = linkOver.closest(".nav__links").querySelectorAll(".nav__link");
+    let image = linkOver.closest(".nav").querySelector("img");
+    let text = linkOver.closest(".nav").querySelector(".nav__text");
+
+    links.forEach((e) => {
+      if (e !== linkOver) e.style.opacity = this;
+    });
+
+    image.style.opacity = this;
+    text.style.opacity = this;
+  }
+}
+
+nav.addEventListener("mouseover", navigationHoverOpacity.bind(0.4));
+
+nav.addEventListener("mouseout", navigationHoverOpacity.bind(1));
