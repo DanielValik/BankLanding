@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   font-size: 1.6em;
   font-weight: 400;
   color: rgb(49, 49, 49);
@@ -222,7 +222,7 @@ h4 {
 
 .highlight::after {
   display: block;
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -469,7 +469,7 @@ h4 {
 }
 
 .review::before {
-  content: '\201C';
+  content: "\201C";
   position: absolute;
   top: -6.6rem;
   left: -8.8rem;
